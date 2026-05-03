@@ -1,0 +1,217 @@
+.dashboard-shell {
+  min-height: 100vh;
+  padding: 32px;
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(125, 211, 252, 0.14),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(52, 211, 153, 0.14),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 255, 255, 0.06),
+      transparent 30%
+    );
+}
+
+.hero-card,
+.metric-card,
+.chart-card {
+  backdrop-filter: blur(18px);
+  background: rgba(8, 17, 31, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+}
+
+.hero-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 32px;
+  border-radius: 28px;
+  margin: 0 auto 24px;
+  max-width: 1320px;
+}
+
+.eyebrow,
+.card-label,
+.metric-card span,
+.card-caption,
+.hero-status p {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: rgba(219, 226, 255, 0.65);
+  margin: 0;
+}
+
+.hero-card h1 {
+  margin: 10px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 0.98;
+}
+
+.hero-copy {
+  max-width: 720px;
+  margin: 0;
+  color: rgba(226, 232, 255, 0.82);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero-status {
+  min-width: 220px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-status strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.2rem;
+}
+
+.pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #34d399;
+  box-shadow: 0 0 0 rgba(52, 211, 153, 0.55);
+  animation: pulse 1.8s infinite;
+}
+
+.metrics-grid,
+.charts-grid {
+  display: grid;
+  gap: 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.metrics-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  padding: 20px 22px;
+  border-radius: 24px;
+}
+
+.metric-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1;
+}
+
+.charts-grid {
+  grid-template-columns: 1.6fr 1fr;
+}
+
+.chart-card {
+  border-radius: 28px;
+  padding: 24px;
+}
+
+.chart-card--wide {
+  min-height: 460px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.card-header h2 {
+  margin: 8px 0 0;
+  font-size: 1.35rem;
+}
+
+.card-caption {
+  text-align: right;
+  max-width: 220px;
+  line-height: 1.5;
+}
+
+.chart-frame {
+  height: 320px;
+}
+
+.chart-frame--pie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recharts-text,
+.recharts-legend-item-text {
+  fill: rgba(233, 238, 255, 0.8) !important;
+  color: rgba(233, 238, 255, 0.8) !important;
+}
+
+.recharts-tooltip-label,
+.recharts-default-tooltip {
+  color: #f5f7ff !important;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .charts-grid,
+  .metrics-grid,
+  .hero-card {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-caption {
+    text-align: left;
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-shell {
+    padding: 16px;
+  }
+
+  .hero-card,
+  .chart-card,
+  .metric-card {
+    border-radius: 22px;
+  }
+
+  .hero-card {
+    padding: 22px;
+  }
+
+  .chart-card {
+    padding: 18px;
+  }
+}
